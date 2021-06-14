@@ -1,0 +1,153 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hola
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - ok
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - thanks
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+    - i am bored
+    - i am not happy
+    - i am unhappy
+    - bored
+    - i am sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: roleq
+  examples: |
+    - what is my role?
+    - what am I expected to do?
+    - what company expects from me?
+    - what work will I be assigned?
+- intent: comq
+  examples: |
+    - what does company aim for?
+    - What is vision of company?
+    - What is mission of company?
+    - what should I expect from the company?
+    - what are the aims of the company
+- intent: cafeq
+  examples: |
+    - where is the cafeteria
+    - Is there any cafeteria nearby?
+    - I am hungry
+    - I want to have some food
+    - i am hungry
+    - where is cafeteria exactly?
+- intent: tvq
+  examples: |
+    - Is there a television room?
+    - I want to watch sport
+    - Can I watch movie
+    - i want to watch football
+    - i want to watch sports
+- intent: timq
+  examples: |
+    - What are the working hours?
+    - When is the break time?
+    - break time?
+    - i want break
+- intent: ready
+  examples: |
+    - Yes I am ready!
+    - I am ready to start
+- intent: right_a1
+  examples: |
+    - right ans1
+- intent: right_a2
+  examples: |
+    - right ans2
+- intent: hello_wor
+  examples: |
+    - hello world
+- intent: team_brief_q
+  examples: |
+    - tell me about the team
+    - who are my colleagues
+    - who I am working with ?
+    - who are my team members?
+- intent: event_fetch_q
+  examples: |
+    - what's new?
+    - what are the upcoming events?
+    - what's interesting?
+    - whats new?
+    - whats new

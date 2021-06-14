@@ -1,0 +1,169 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- roleq:
+    use_entities: true
+- comq:
+    use_entities: true
+- cafeq:
+    use_entities: true
+- tvq:
+    use_entities: true
+- timq:
+    use_entities: true
+- ready:
+    use_entities: true
+- hello_wor:
+    use_entities: true
+- right_a2:
+    use_entities: true
+- right_a1:
+    use_entities: true
+- right_a3:
+    use_entities: true
+- team_brief_q:
+    use_entities: true
+- event_fetch_q:
+    use_entities: true
+entities: []
+slots:
+  coverage:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  k_no:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  car_req:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  team_no:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - buttons:
+    - payload: /ready
+      title: Yes
+    - payload: /deny
+      title: No
+    text: |-
+      Hi, Welcome to unisys.
+      Team is exited that you are here! 
+      We will ease your onboarding, please go through the processes.
+      Are you ready to start?
+  utter_cheer_up:
+  - text: You can go to the cafeteria for some refreshments, it is on the first floor
+  - text: You can catch up live sport or laughter in the television room which is on the third floor beside the canteen
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: See you again! Feel free to come here in case of any help ! ;-)
+  utter_iamabot:
+  - text: 'I am your buddy bot! :-) '
+  utter_roleq:
+  - text: As a Software Engineer, you are expected to work on the product developments and apply your innovation to build a securer and better tomorrow.
+  utter_comq:
+  - text: |-
+      Unisys is a global IT solutions company that delivers successful outcomes for the most demanding businesses and governments.
+      Unisys offerings include digital workplace services, cloud and infrastructure services, software operating environments for high-intensity enterprise computing, business process solutions and application development services.
+      Unisys integrates security into all of its solutions.
+  utter_cafeq:
+  - text: The cafeteria is on the first floor, beside the room number 20
+  utter_tvq:
+  - text: The television room is on the third floor, infront of the room number 303
+  utter_timq:
+  - text: The working hours are from 9 am to 5 pm, with an hour of break between 1 30 to 2 30
+  utter_q1:
+  - text: |-
+      What type of medical coverage you want ?
+      1. Individual 
+      2. Individual + Spouse 
+      3. Individual + family
+  utter_ans1:
+  - buttons:
+    - payload: /right_a1
+      title: Correct
+    - payload: /ready
+      title: Incorrect
+    text: The coverage chosen is {coverage}
+  utter_q2:
+  - text: Your next of kin contact number?
+  utter_ans2:
+  - buttons:
+    - payload: /right_a2
+      title: Correct
+    - payload: /right_a1
+      title: Incorrect
+    text: no. is {k_no}
+  utter_q3:
+  - text: Will you be requiring company car?(Yes or No)
+  utter_ans3:
+  - buttons:
+    - payload: /right_a3
+      title: Correct
+    - payload: /right_a2
+      title: Incorrect
+    text: The answer is {car_req}
+  utter_q4:
+  - text: |-
+      Lets get to know your team-mates, Select your team 
+      1. Soft Eng 1 
+      2. Soft Eng 2  
+      3. Soft Eng 3
+  utter_complete:
+  - text: Initial setup has been updated! You are all set!
+actions:
+- action_hello_world
+- action_team_profile
+- action_event_fetch
+forms:
+  coverage_form:
+    required_slots:
+      coverage:
+      - type: from_text
+  kin_num_form:
+    required_slots:
+      k_no:
+      - type: from_text
+  car_req_form:
+    required_slots:
+      car_req:
+      - type: from_text
+  team_no_form:
+    required_slots:
+      team_no:
+      - type: from_text
+e2e_actions: []

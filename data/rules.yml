@@ -1,0 +1,119 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Say 'cafe loc' anytime the user asks
+  steps:
+  - intent: cafeq
+  - action: utter_cafeq
+
+- rule: Say 'tv loc' anytime the user asks
+  steps:
+  - intent: tvq
+  - action: utter_tvq
+
+- rule: Say 'work time' anytime the user asks
+  steps:
+  - intent: timq
+  - action: utter_timq
+
+- rule: Activate Coverage Form
+  steps:
+  - intent: ready
+  - action: utter_q1
+  - action: coverage_form
+  - active_loop: coverage_form
+
+- rule: Submit Coverage Form
+  condition:
+  - active_loop: coverage_form
+  steps:
+  - action: coverage_form
+  - active_loop: null
+  - slot_was_set: 
+    - requested_slot: null
+  - action: utter_ans1
+  # - action: confirm_a1
+  # - action: utter_q2
+  # - action: kin_num_form
+  # - active loop: kin_num_form
+  
+- rule: Activate Kin_form Form
+  steps:
+  - intent: right_a1
+  - action: utter_q2
+  - action: kin_num_form
+  - active_loop: kin_num_form
+
+- rule: Submit kin Form
+  condition:
+  - active_loop: kin_num_form
+  steps:
+  - action: kin_num_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_ans2
+
+
+- rule: Activate Kin_form Form
+  steps:
+  - intent: right_a2
+  - action: utter_q3
+  - action:  car_req_form
+  - active_loop: car_req_form
+
+- rule: Submit kin Form
+  condition:
+  - active_loop: car_req_form
+  steps:
+  - action: car_req_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_ans3
+  
+- rule: Activate Team_no form
+  steps:
+  - intent: right_a3
+  - action: utter_q4
+  - action: team_no_form
+  - active_loop: team_no_form
+
+- rule: Submit Team_no form
+  condition:
+  - active_loop: team_no_form
+  steps:
+  - action: team_no_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # - action: utter_ans4  
+  - action: action_team_profile
+  - action: utter_complete
+
+
+- rule: test
+  steps:
+  - intent: hello_wor
+  - action: action_hello_world
+
+- rule: team brief
+  steps:
+  - intent: team_brief_q
+  - action: action_team_profile
+
+- rule: event fetch 
+  steps:
+  - intent: event_fetch_q
+  - action: action_event_fetch
